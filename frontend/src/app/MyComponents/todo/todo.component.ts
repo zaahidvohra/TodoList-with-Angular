@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TodoComponent implements OnInit {
   todos: Todo[] = [];
-  private apiUrl = 'http://localhost:5000/api/todos';
+  private apiUrl = 'https://todolist-with-angular.onrender.com/api/todos';
 
   constructor(private http: HttpClient) {}
 

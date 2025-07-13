@@ -7,6 +7,7 @@ import { TodoComponent } from './MyComponents/todo/todo.component';
 import { TodoListComponent } from './MyComponents/todo-list/todo-list.component';
 import { AddTodoComponent } from './MyComponents/add-todo/add-todo.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './MyComponents/about/about.component';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AboutComponent } from './MyComponents/about/about.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()

@@ -39,12 +39,7 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.js",
-            "./node_modules/jquery/dist/jquery.js"],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "./node_modules/jquery/dist/jquery.js"]
           },
           "configurations": {
             "production": {

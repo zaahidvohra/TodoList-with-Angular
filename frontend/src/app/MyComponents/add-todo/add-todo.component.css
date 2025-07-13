@@ -1,0 +1,22 @@
+.todo-container {
+    background-color: #333 !important;
+    color: #fff !important;
+    padding: 15px !important;
+  }
+  
+  .todo-container h4,
+  .todo-container label {
+    color: #fff !important;
+  }
+  
+  .todo-container input[type="text"] {
+    background-color: #444 !important;
+    color: #fff !important;
+  }
+  
+  .todo-container button {
+    margin-top: 10px !important;
+  }
+  
+  /* You might link this external CSS file in your Angular component or globally in your application to apply these styles. */
+  

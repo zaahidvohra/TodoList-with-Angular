@@ -1,0 +1,12 @@
+<div class="container" style="background-color:#333; backdrop-filter: blur(10px); border-radius: 10px; padding: 20px; margin-top: 50px;">
+    <h1 class="text-center mb-4" style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Todo list in Angular</h1>
+
+    <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+    <h4 class="mb-3" style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Your Todos</h4>
+    <div *ngIf="todos.length === 0; else elseBlock" style="color: #fff;">No Todos to display</div>
+    <ng-template #elseBlock>
+        <div *ngFor="let todo of todos">
+            <app-todo-list [todo]="todo" (todoDelete)="deleteTodo($event)" (todoCheckbox)="toggleTodo($event)"></app-todo-list>
+        </div>
+    </ng-template>
+</div>

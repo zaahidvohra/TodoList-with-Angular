@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db'); // this is now the pool
+const db = require('../models/db');
 
 // Get all todos
 router.get('/', async (req, res) => {

@@ -9,7 +9,7 @@ app.use(express.json());
 
 // ✅ CORS middleware - allow frontend domain
 app.use(cors({
-  origin: ['https://todo-list-with-angular-blush.vercel.app/', 'http://localhost:4200'], // add both prod + local
+  origin: 'https://todo-list-with-angular-blush.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));

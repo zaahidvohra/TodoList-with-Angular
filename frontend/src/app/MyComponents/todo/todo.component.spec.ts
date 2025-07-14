@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TodoComponent } from './todo.component';
+import { AddTodoComponent } from '../add-todo/add-todo.component';
 
 describe('TodoComponent', () => {
   let component: TodoComponent;
@@ -8,7 +9,7 @@ describe('TodoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TodoComponent],
+      declarations: [TodoComponent, AddTodoComponent],
       imports: [HttpClientTestingModule]
     })
     .compileComponents();

@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
 
 // Add a new todo
 router.post('/', async (req, res) => {
-  const { title, completed } = req.body;
+  const { title, completed, description } = req.body;
   try {
     const [result] = await db.query(
-      'INSERT INTO todos (title, completed) VALUES (?, ?)',
-      [title, completed]
+      'INSERT INTO todos (title, description, completed) VALUES (?, ?, ?)',
+      [title, completed, description]
     );
     res.status(201).json({ id: result.insertId, title, completed });
   } catch (err) {

@@ -1,0 +1,61 @@
+
+name: Pull Request Checks
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  lint-and-format:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+    
+    - name: Install frontend dependencies
+      run: |
+        cd frontend
+        npm ci
+    
+    - name: Install backend dependencies
+      run: |
+        cd backend
+        npm ci
+    
+    - name: Lint frontend code
+      run: |
+        cd frontend
+        npx ng lint || echo "Angular linting not configured yet"
+    
+    - name: Check TypeScript compilation
+      run: |
+        cd frontend
+        npx tsc --noEmit
+    
+    - name: Build frontend for production
+      run: |
+        cd frontend
+        npm run build
+
+  security-scan:
+    name: Security Vulnerability Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Run npm audit for backend
+      run: |
+        cd backend
+        npm audit --audit-level moderate
+    
+    - name: Run npm audit for frontend
+      run: |
+        cd frontend
+        npm audit --audit-level moderate

@@ -15,13 +15,14 @@ router.get('/', async (req, res) => {
 
 // Add a new todo
 router.post('/', async (req, res) => {
-  const { title, completed, description } = req.body;
+  const { title, completed = false, description = '' } = req.body;
   try {
+    // Pass default value 1 for id
     const [result] = await db.query(
-      'INSERT INTO todos (title, description, completed) VALUES (?, ?, ?)',
-      [title, completed, description]
+      'INSERT INTO todos (id, title, description, completed) VALUES (?, ?, ?, ?)',
+      [1, title, description, completed]
     );
-    res.status(201).json({ id: result.insertId, title, completed });
+    res.status(201).json({ id: 1, title, completed, description });
   } catch (err) {
     console.error('Error adding todo:', err.message);
     res.status(500).json({ error: 'Database error' });

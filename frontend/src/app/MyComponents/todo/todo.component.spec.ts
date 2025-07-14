@@ -8,7 +8,8 @@ describe('TodoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TodoComponent]
+      declarations: [TodoComponent],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
     

@@ -22,7 +22,7 @@
     
     <ng-template #elseBlock>
         <div *ngFor="let todo of todos" *ngIf="!isLoading">
-            <app-todo-list [todo]="todo" (todoDelete)="deleteTodo($event)" (todoCheckbox)="toggleTodo($event)"></app-todo-list>
+            <app-todo-list [todo]="todo" (todoDelete)="deleteTodo($event)" (todoCheckbox)="toggleTodo($event)" (todoUpdate)="updateTodo($event)"></app-todo-list>
         </div>
     </ng-template>
 </div>

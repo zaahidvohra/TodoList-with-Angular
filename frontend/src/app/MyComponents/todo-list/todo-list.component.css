@@ -1,3 +1,19 @@
 .strike{
-    text-decoration: line-through;
+  text-decoration: line-through;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: 500;
 }

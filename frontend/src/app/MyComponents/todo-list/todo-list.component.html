@@ -1,9 +1,31 @@
 <div class="my-3" style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 8px; padding: 15px;">
-  <h3 [ngClass]="{'strike': !todo.completed}" style="color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">{{todo.title}}</h3>
-  <p [ngClass]="{'strike': !todo.completed}" style="color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">{{todo.description}}</p>
-  <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" (click)="onCheckboxClick(todo)">
-      <label class="form-check-label" for="exampleCheck1" style="color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">Mark as done</label>
+  <!-- View Mode -->
+  <div *ngIf="!isEditing">
+    <h3 [ngClass]="{'strike': todo.completed}" style="color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">{{todo.title}}</h3>
+    <p [ngClass]="{'strike': todo.completed}" style="color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">{{todo.description}}</p>
+    <div class="form-check">
+        <input type="checkbox" [checked]="todo.completed" class="form-check-input" id="checkbox-{{todo.id}}" (click)="onCheckboxClick(todo)">
+        <label class="form-check-label" for="checkbox-{{todo.id}}" style="color: #fff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">Mark as done</label>
+    </div>
+    <div class="mt-2">
+      <button class="btn btn-sm btn-warning me-2" (click)="onEditClick()">Edit</button>
+      <button class="btn btn-sm btn-danger" (click)="onDeleteClick(todo)">Delete</button>
+    </div>
   </div>
-  <button class="btn btn-sm btn-danger mt-2" (click)="onDeleteClick(todo)">Delete</button>
+
+  <!-- Edit Mode -->
+  <div *ngIf="isEditing">
+    <div class="form-group mb-2">
+      <label for="edit-title-{{todo.id}}" style="color: #fff; font-size: 14px;">Title</label>
+      <input type="text" [(ngModel)]="editTitle" class="form-control form-control-sm" id="edit-title-{{todo.id}}" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff;">
+    </div>
+    <div class="form-group mb-3">
+      <label for="edit-desc-{{todo.id}}" style="color: #fff; font-size: 14px;">Description</label>
+      <input type="text" [(ngModel)]="editDescription" class="form-control form-control-sm" id="edit-desc-{{todo.id}}" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff;">
+    </div>
+    <div>
+      <button class="btn btn-sm btn-success me-2" (click)="onSaveClick()">Save</button>
+      <button class="btn btn-sm btn-secondary" (click)="onCancelClick()">Cancel</button>
+    </div>
+  </div>
 </div>

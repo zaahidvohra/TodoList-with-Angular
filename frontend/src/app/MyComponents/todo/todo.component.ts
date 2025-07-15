@@ -77,4 +77,19 @@ export class TodoComponent implements OnInit {
       }
     });
   }
+
+  updateTodo(updatedTodo: Todo): void {
+    this.todoService.updateTodo(updatedTodo.id, updatedTodo).subscribe({
+      next: (updated) => {
+        const index = this.todos.findIndex(t => t.id === updatedTodo.id);
+        if (index > -1) {
+          this.todos[index] = updated;
+        }
+      },
+      error: (error) => {
+        console.error('Error updating todo:', error);
+        this.error = 'Failed to update todo';
+      }
+    });
+  }
 }

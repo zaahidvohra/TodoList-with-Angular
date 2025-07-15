@@ -1,28 +1,38 @@
 <div class="container" style="background-color:#333; backdrop-filter: blur(10px); border-radius: 10px; padding: 20px; margin-top: 50px;">
-    <h1 class="text-center mb-4" style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Todo list in Angular</h1>
+  <h1 class="text-center mb-4" style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+    Todo list in Angular
+  </h1>
 
-    <div *ngIf="error" class="alert alert-danger" style="color: #fff; background-color: rgba(220, 53, 69, 0.8);">
-        {{error}}
-        <button type="button" class="btn btn-sm btn-outline-light ms-2" (click)="loadTodos()">Retry</button>
-    </div>
+  <div *ngIf="error" class="alert alert-danger" style="color: #fff; background-color: rgba(220, 53, 69, 0.8);">
+    {{ error }}
+    <button type="button" class="btn btn-sm btn-outline-light ms-2" (click)="loadTodos()">Retry</button>
+  </div>
 
-    <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
-    
-    <h4 class="mb-3" style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Your Todos</h4>
-    
-    <div *ngIf="isLoading" class="text-center" style="color: #fff;">
-        <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-    </div>
+  <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
 
-    <div *ngIf="!isLoading && todos.length === 0; else elseBlock" style="color: #fff;">
-        No Todos to display
+  <h4 class="mb-3" style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Your Todos</h4>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="text-center" style="color: #fff;">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
-    
-    <ng-template #elseBlock>
-        <div *ngFor="let todo of todos" *ngIf="!isLoading">
-            <app-todo-list [todo]="todo" (todoDelete)="deleteTodo($event)" (todoCheckbox)="toggleTodo($event)" (todoUpdate)="updateTodo($event)"></app-todo-list>
-        </div>
-    </ng-template>
+  </div>
+
+  <!-- No Todos -->
+  <div *ngIf="!isLoading && todos.length === 0" style="color: #fff;">
+    No Todos to display
+  </div>
+
+  <!-- Todos List -->
+  <ng-container *ngIf="!isLoading && todos.length > 0">
+    <div *ngFor="let todo of todos">
+      <app-todo-list 
+        [todo]="todo" 
+        (todoDelete)="deleteTodo($event)" 
+        (todoCheckbox)="toggleTodo($event)" 
+        (todoUpdate)="updateTodo($event)">
+      </app-todo-list>
+    </div>
+  </ng-container>
 </div>

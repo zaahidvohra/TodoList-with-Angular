@@ -2,7 +2,10 @@
 
 A full-stack todo list application built with Angular frontend and Node.js backend, featuring MySQL database integration and CI/CD pipeline.
 
-![Project Demo](https://img.shields.io/badge/Demo-Live-green) ![Angular](https://img.shields.io/badge/Angular-15+-red) ![Node.js](https://img.shields.io/badge/Node.js-18+-green) ![MySQL](https://img.shields.io/badge/MySQL-8.0+-blue)
+[![Live Demo](https://img.shields.io/badge/Demo-Live-green)](https://todo-list-with-angular-blush.vercel.app/)
+![Angular](https://img.shields.io/badge/Angular-15%2B-red)
+![Node.js](https://img.shields.io/badge/Node.js-18%2B-green)
+![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-blue)
 
 ## 🚀 Features
 

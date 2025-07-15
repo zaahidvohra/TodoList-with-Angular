@@ -1,6 +1,6 @@
 
 export const API_CONFIG = {
-  BASE_URL: 'https://todo-backend-with-mysql.onrender.com',
+  BASE_URL: 'http://localhost:5000',
   ENDPOINTS: {
     TODOS: '/api/todos'
   },

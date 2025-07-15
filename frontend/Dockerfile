@@ -1,7 +1,7 @@
 # Stage 1: Build React app
 FROM node:18-alpine as build
 WORKDIR /app
-COPY ./frontend ./
+COPY . ./
 RUN npm install
 RUN npm run build
 

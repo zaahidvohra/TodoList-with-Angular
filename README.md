@@ -57,7 +57,7 @@ A full-stack todo list application built with Angular frontend and Node.js backe
 
 ### DevOps & Deployment
 - **GitHub Actions** - CI/CD pipeline
-- **Replit** - Backend hosting
+- **Render** - Backend hosting
 - **Vercel** - Frontend hosting
 - **Railway** - MySQL database hosting
 
@@ -99,7 +99,6 @@ todo-app/
 │   └── workflows/
 │       ├── ci-cd.yml                  # Main CI/CD pipeline
 │       └── pr-checks.yml              # Pull request checks
-├── .replit                            # Replit configuration
 └── README.md                          # Project documentation
 ```
 
@@ -206,9 +205,9 @@ CREATE TABLE todos (
 
 ## 🚀 Deployment
 
-### Replit Deployment (Backend)
-1. Import project to Replit
-2. Configure environment variables in Secrets
+### Render Deployment (Backend)
+1. Import project to Render
+2. Configure environment variables
 3. Backend automatically deploys on push to main
 
 ### Vercel Deployment (Frontend)
@@ -281,8 +280,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👤 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+- GitHub: [@zaahidvohra](https://github.com/zaahidvohra)
+- LinkedIn: [Zaahid Vohra - Linkedin]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/zaahid-vohra-17048a203/))
 
 ## 🙏 Acknowledgments
 
